@@ -24,3 +24,45 @@ void * myCalloc(size_t numItems, size_t size) {
     return pointer;
 }
 ```
+
+Assigning Integer items with my implementation is as follows: 
+
+```<C>
+void intCalloc() {
+    int *p;
+
+    int numElements = 5;
+
+    int size = sizeof(int);
+
+    p = (int*)myCalloc(numElements, size);
+
+    if (p == NULL)
+    {
+        printf("Memory allocation failed\n");
+    }
+    else
+    {
+        printf("Memory allocation successful\n");
+        
+
+
+        printf("Assigning values to allocated array\n");
+        for (int i = 0; i < numElements; i++)
+        {
+            p[i] = i;
+        }
+
+        printf("Printing allocated memory\n");
+        for (int i = 0; i < numElements; i++)
+        {
+            printf("%d\n", p[i]);
+        }
+
+        
+    }
+    
+    printf("Freeing allocated memory\n");
+    free(p);
+}
+```
