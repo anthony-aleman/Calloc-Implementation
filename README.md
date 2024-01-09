@@ -28,41 +28,29 @@ void * myCalloc(size_t numItems, size_t size) {
 Assigning Integer items with my implementation is as follows: 
 
 ```<C>
-void intCalloc() {
-    int *p;
+int *p;
 
-    int numElements = 5;
+int numElements = 5;
 
-    int size = sizeof(int);
+int size = sizeof(int);
 
-    p = (int*)myCalloc(numElements, size);
+p = (int*)myCalloc(numElements, size);
 
-    if (p == NULL)
+if (p == NULL){
+    printf("Memory allocation failed\n");
+} else {
+    // Assigning Values to allocated memory
+    for (int i = 0; i < numElements; i++)
     {
-        printf("Memory allocation failed\n");
+        p[i] = i;
     }
-    else
+    // Printing values in allocated memory
+    for (int i = 0; i < numElements; i++)
     {
-        printf("Memory allocation successful\n");
-        
-
-
-        printf("Assigning values to allocated array\n");
-        for (int i = 0; i < numElements; i++)
-        {
-            p[i] = i;
-        }
-
-        printf("Printing allocated memory\n");
-        for (int i = 0; i < numElements; i++)
-        {
-            printf("%d\n", p[i]);
-        }
+        printf("%d\n", p[i]);
+    }
 
         
-    }
-    
-    printf("Freeing allocated memory\n");
-    free(p);
 }
+free(p);
 ```
